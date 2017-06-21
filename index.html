@@ -79,29 +79,60 @@
           right: 5mm;
           text-align: right;
         }
+        .hidden-print {
+          margin: 6mm 6mm 12mm;
+        }
+          .pretty-input {
+            font-size: 16px;
+            font-family: 'Kelson';
+          }
+          .pretty-input.number {
+            width: 24px;
+            border: 0;
+            border-bottom: 2px solid #aaa;
+            text-align: center;
+          }
+      @media print {
+        .hidden-print, .hidden-print * {
+          display: none !important;
+        }
+      }           
   </style>  
 </head>
 <body>
   <div id="app">
+    <div class="hidden-print">
+      <select class="pretty-input" v-model="selectedBeer">
+        <option v-for="beer in beers" v-bind:value="beer.key">
+          {{ beer.name }}
+        </option>
+      </select>
+      &nbsp;
+      <label class="pretty-input"><input class="pretty-input number" v-model="abv" placeholder="4,5"> %</label>
+    </div>  
     <ul class="label-list">
       <li v-for="n in 6" class="label-wrap">
         <img class="label-logo" src="logo_Beerboon.jpg">
-      <div class="label-stripe" :style="{ 'background-color': beers.monkey.colour }">
-        <div class="label-name">{{beers.monkey.name}}</div>
+      <div class="label-stripe" :style="{ 'background-color': beers[selectedBeer]['colour'] }">
+        <div class="label-name" v-html="beers[selectedBeer]['name']"></div>
       </div> 
-      <div class="label-style">{{beers.monkey.style}}</div>
-      <div class="label-abv">4,5%</div>
+      <div class="label-style">{{ beers[selectedBeer]['style'] }}</div>
+      <div class="label-abv">{{ abv }}%</div>
       </li>
     </ul>
   </div>
-
   <script>
     new Vue({
       el: '#app',
       data: {
+        selectedBeer: 'monkey',
+        abv: '4,5',
         beers: {
-          monkey: {name: 'Friendly Monkey', style: 'Trappist Single', colour: '#A96FA3'}
-        }
+          monkey: {key: 'monkey', name: 'Friendly Monkey', style: 'Trappist Single', colour: '#A96FA3'},
+          wet: {key: 'wet', name: 'Wet Summer', style: 'American Wheat', colour: '#F9CE82'},
+          patches: {key: 'patches', name: 'Patches', style: 'Irish Stout', colour: '#4D4D4D'},
+          wit: {key: 'wit', name: 'What<br>A Wit', style: 'Witbier', colour: '#77C8A9'}
+        }        
       }
     })
   </script>
