@@ -8,7 +8,7 @@ A quick and dirty label generator for [beerboon](http://beerboon.co).
 
 For this to look great you will need to have the necessary fonts installed on your computer (licenses..) :)
 
-Written with (Vue.js)[https://vuejs.org] as an experiment in the basic way for easy customisation.
+Written with [Vue.js](https://vuejs.org) as an experiment in the basic way for easy customisation.
 Just fork this repo, slack in your own assets & change the CSS and you can make this work for you.
 
 Happy customising, let me know what you think!
