@@ -20,10 +20,10 @@
         float: left;
         margin: 0mm 0mm 2mm 0mm;
       }
-      .label-wrap:nth-child(odd) {
-        clear: both;
-        margin-right: 2mm;
-      }
+        .label-wrap:nth-child(odd) {
+          clear: both;
+          margin-right: 2mm;
+        }  
         .label-wrap:before, .label-wrap:after {
           position: absolute;
           content: '';
@@ -97,21 +97,27 @@
         .hidden-print, .hidden-print * {
           display: none !important;
         }
+        .label-list {
+          clear: both;
+          page-break-after: always;
+          min-height: 1px;
+        }
       }           
   </style>  
 </head>
 <body>
   <div id="app">
     <div class="hidden-print">
+      <label class="pretty-input"><input class="pretty-input number" v-model="sheets" placeholder="{{ sheets }}"> A4 Sheets</label><br><br>
       <select class="pretty-input" v-model="selectedBeer">
         <option v-for="beer in beers" v-bind:value="beer.key">
           {{ beer.name }}
         </option>
       </select>
       &nbsp;
-      <label class="pretty-input"><input class="pretty-input number" v-model="abv" placeholder="4,5"> %</label>
+      <label class="pretty-input"><input class="pretty-input number" v-model="abv" placeholder="{{ abv }}"> %</label>
     </div>  
-    <ul class="label-list">
+    <ul v-for="n in sheets" class="label-list">
       <li v-for="n in 6" class="label-wrap">
         <img class="label-logo" src="logo_Beerboon.jpg">
       <div class="label-stripe" :style="{ 'background-color': beers[selectedBeer]['colour'] }">
@@ -126,6 +132,7 @@
     new Vue({
       el: '#app',
       data: {
+        sheets: 1,
         selectedBeer: 'monkey',
         abv: '4,5',
         beers: {
