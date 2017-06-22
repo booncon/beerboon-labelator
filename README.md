@@ -2,9 +2,9 @@
 
 A quick and dirty label generator for [beerboon](http://beerboon.co).
 
-Step 1: select the style of beer
-Step 2: enter the ABV
-Step 3: hit print in your browser, make sure to print backgrounds
+- Step 1: select the style of beer
+- Step 2: enter the ABV
+- Step 3: hit print in your browser, make sure to print backgrounds
 
 You will need to have the necessary fonts installed on your computer for this to look nice :)
 
