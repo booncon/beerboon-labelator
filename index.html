@@ -50,7 +50,7 @@
           width: 32mm;
           position: absolute;
           left: 50%;
-          transform: translateX(-50%); 
+          transform: translateX(-50%);
           top: 8mm;
         }
         .label-stripe {
@@ -109,7 +109,7 @@
             width: 24px;
             border: 0;
             text-align: center;
-          }          
+          }
         .print-btn {
           border: 1px solid #eee;
           padding: 7px 16px;
@@ -171,7 +171,7 @@
           .label-stripe {
             height: 34mm;
             top: 31mm;
-          }  
+          }
           .label-style, .label-abv {
             bottom: 2.5mm;
           }
@@ -181,13 +181,13 @@
           .label-abv {
             right: 5mm;
             text-align: right;
-          }            
+          }
       }
       @media only screen and (max-width : 480px) {
         .label-wrap:nth-child(1) {
           transform: scale(1.15) translateY(-50%) translateX(-50%);
         }
-      }  
+      }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -198,7 +198,7 @@
         <img class="label-logo" src="logo_Beerboon.jpg">
       <div class="label-stripe" v-on:click="cycleBeers" :style="{ 'background-color': beers[selectedBeer]['colour'] }">
         <div class="label-name" v-html="beers[selectedBeer]['name']"></div>
-      </div> 
+      </div>
       <div class="label-style">{{ beers[selectedBeer]['style'] }}</div>
       <label class="pretty-inpu label-abv"><input class="pretty-inpu number" v-model="abv" :placeholder="abv"> %</label>
       </li>
@@ -216,8 +216,9 @@
           {name: 'Friendly Monkey', style: 'Trappist Single', colour: '#A96FA3', abv: '4,8'},
           {name: 'Wet Summer', style: 'American Wheat', colour: '#F9CE82', abv: '5,2'},
           {name: 'Patches', style: 'Irish Stout', colour: '#4D4D4D', abv: '4,2'},
+          {name: 'Rusty Rex', style: 'American Amber Ale', colour: '#F29375', abv: '4,9'},
           {name: 'What<br>A Wit', style: 'Witbier', colour: '#77C8A9', abv: '5'}
-        ]        
+        ]
       },
       methods: {
         cycleBeers: function (event) {
